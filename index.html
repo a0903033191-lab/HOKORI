@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作品集 - Hokori</title>
+<style>
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0; padding: 0;
+  background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+  position: relative;
+  min-height: 100vh;
+  color: white;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+h1,h2 { text-shadow:0 0 12px rgba(255,255,255,0.5); }
+h1 { font-size:3rem; text-align:center; margin-bottom:50px; }
+h2 { font-size:2rem; margin-bottom:30px; }
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* 共通 hover 效果 */
+.work-card, .poster-container, .long-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.work-card:hover, .poster-container:hover, .long-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* 攝影卡 */
+.poster-container {
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.2);
+}
+.poster-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 長方形卡（剪輯/動畫） */
+.long-card {
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.long-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 導覽列 */
+.nav-top {
+  position: fixed;
+  top: 20px; right: 20px;
+  display: flex; gap: 10px;
+  z-index: 2;
+}
+.nav-top a {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-top a:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+/* 全螢幕 modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+.modal-content img {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+.modal-content video {
+  width: auto;
+  height: auto;
+  max-width: 80vw;   /* <-- 影片不要太滿，左右留空 */
+  max-height: 80vh;  /* <-- 上下也留空 */
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+.modal-close {
+  position: absolute;
+  top: -35px;
+  right: -10px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+.modal-close:hover {
+  color: #ccc;
+}
+
+@media(max-width:600px){
+  h1{font-size:2rem;}
+  h2{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-top">
+  <a href="22-1.html">關於我</a>
+  <a href="books.html">推薦の作品</a>
+  <a href="service.html">我推的MUSIC</a>
+  <a href="research.html">聯絡方式</a>
+</div>
+
+<div class="container">
+<h1>作品集</h1>
+
+<!-- 攝影 -->
+<h2>攝影</h2>
+<div class="works-grid">
+  <div class="poster-container" onclick="openModal('photo','images/S__8060944.jpg')">
+    <img src="images/S__8060944.jpg" alt="攝影1">
+  </div>
+  <div class="poster-container" onclick="openModal('photo','images/S__8060946_0.jpg')">
+    <img src="images/S__8060946_0.jpg" alt="攝影2">
+  </div>
+  <div class="poster-container" onclick="openModal('photo','images/S__8060947_0.jpg')">
+    <img src="images/S__8060947_0.jpg" alt="攝影3">
+  </div>
+  <div class="poster-container" onclick="openModal('photo','images/S__8060948.jpg')">
+    <img src="images/S__8060948.jpg" alt="攝影4">
+  </div>
+</div>
+
+<!-- 剪輯 -->
+<h2>剪輯</h2>
+<div class="works-grid">
+  <a href="https://youtu.be/7_hmF7xzr6w?si=9rqkvRKHqHuCUMsO" class="long-card" target="_blank">
+    <img src="https://img.youtube.com/vi/7_hmF7xzr6w/hqdefault.jpg" alt="">
+  </a>
+  <a href="https://youtu.be/MRbCEl715E8?si=pCNLXr3xdy3ZkrHe" class="long-card" target="_blank">
+    <img src="https://img.youtube.com/vi/MRbCEl715E8/hqdefault.jpg" alt="">
+  </a>
+  <a href="https://youtu.be/Ei-FNNaV0WQ?si=DoX0XPpMTwpxDBka" class="long-card" target="_blank">
+    <img src="https://img.youtube.com/vi/Ei-FNNaV0WQ/hqdefault.jpg" alt="">
+  </a>
+</div>
+
+<!-- 動畫 -->
+<h2>動畫</h2>
+<div class="works-grid">
+  <div class="long-card" onclick="openModal('video','videos/duolingo_train.mp4')">
+    <img src="images/duolingo_train_station_poster.png.png" alt="動畫1">
+  </div>
+  <div class="long-card" onclick="openModal('video','videos/i_cant.mp4')">
+    <img src="images/messageImage_1762986844768.jpg" alt="動畫2">
+  </div>
+  <div class="long-card" onclick="openModal('video','videos/ad_timr.mp4')">
+    <img src="images/messageImage_1762986588227.jpg" alt="動畫3">
+  </div>
+</div>
+
+</div>
+
+<!-- 全螢幕 -->
+<div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="modal-close" onclick="closeModal()">✕</span>
+    <img id="modalImg" src="" style="display:none;">
+    <video id="modalVideo" controls autoplay style="display:none;"></video>
+  </div>
+</div>
+
+<script>
+function openModal(type, src){
+  const overlay = document.getElementById('modalOverlay');
+  const img = document.getElementById('modalImg');
+  const video = document.getElementById('modalVideo');
+  if(type==='photo'){
+    img.src = src;
+    img.style.display = 'block';
+    video.style.display = 'none';
+  } else if(type==='video'){
+    video.src = src;
+    video.style.display = 'block';
+    img.style.display = 'none';
+    video.play();
+  }
+  overlay.classList.add('active');
+}
+function closeModal(){
+  const overlay = document.getElementById('modalOverlay');
+  const img = document.getElementById('modalImg');
+  const video = document.getElementById('modalVideo');
+  overlay.classList.remove('active');
+  img.src = '';
+  video.pause();
+  video.src = '';
+}
+</script>
+
+</body>
+</html>

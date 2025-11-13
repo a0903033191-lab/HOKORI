@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hokori の個人介紹</title>
+
+  <style>
+    /* ===== 基本設定 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      color: #fff;
+      background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80")
+                  no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: brightness(0.8);
+    }
+
+    /* 半透明背景層 */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    /* 主要內容 */
+    .content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease forwards;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #f1f1f1;
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+
+    /* ===== 按鈕樣式 ===== */
+    .btn {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+      margin: 0 5px;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* ===== 動畫 ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RWD */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <h1>Hokori の個人介紹</h1>
+    <p>
+      你好，我是 Hokori。<br>
+      一個喜歡音樂、打遊戲、看動畫的人類
+      很高興認識你!
+    </p>
+    <div>
+      <a href="index.html" class="btn">作品集</a>
+      <a href="books.html" class="btn">推薦の作品</a>
+      <a href="service.html" class="btn">我推的MUSIC</a>
+      <a href="research.html" class="btn">聯絡方式</a>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯絡 Hokori</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      position: relative;
+      min-height: 100vh;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
+    p.intro {
+      font-size: 1.2rem;
+      margin-bottom: 50px;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 500px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+
+    a {
+      color: #a4d8ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-top {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .nav-top a {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-top a:hover {
+      background: rgba(255,255,255,0.4);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .contact-card { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-top">
+    <a href="22-1.html">關於我</a>
+    <a href="index.html">作品集</a>
+    <a href="books.html">推薦の作品</a>
+    <a href="service.html">我推的MUSIC</a>
+  </div>
+
+  <div class="container">
+    <h1>聯絡 Hokori</h1>
+    <p class="intro">若你想合作、交流、或只是單純想聊聊玩遊戲，歡迎透過以下方式找到我。</p>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        📧 Email：<a href="mailto:a0903033191@gmail.com">a0903033191@gmail.com</a>
+      </div>
+
+      <div class="contact-card">
+        ▶ YouTube：<a href="https://www.youtube.com/@%E7%81%B0%E5%A1%B5D" target="_blank">Hokori 頻道</a>
+      </div>
+
+      <div class="contact-card">
+        📸 Instagram：<a href="https://www.instagram.com/huichen904?igsh=czRpZmpya3pkYjA%3D&utm_source=qr" target="_blank">@huichen904</a>
+      </div>
+
+      <div class="contact-card">
+        💬 Discord：hokori_3310
+      </div>
+    </div>
+  </div>
+</body>
+</html>
